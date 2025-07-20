@@ -191,3 +191,29 @@ curl http://127.0.0.1:5000/debug-index
 - **Intent Classifier:** Uses ChatGPT to classify user intent for proper routing
 - **Embedding Index:** In-memory semantic search index with cosine similarity
 - **Credential Management:** Supports both OAuth 2.0 and service account authentication
+
+## Project Packaging & Security Notes
+
+This project is prepared for safe sharing and easy setup by others. Here are the key points regarding packaging, security, and what to expect when reviewing or using this codebase:
+
+- All sensitive credential files (such as real API keys and tokens) are excluded from the repository via `.gitignore`.
+- No API keys, tokens, or secrets are hardcoded anywhere in the source code.
+- Template files are provided for all configuration and credential files:
+  - `config.env.template` (for environment variables)
+  - `scripts/google_tokens.json.template` (OAuth token structure)
+  - `scripts/gdrive_service_account.json.template` (service account structure)
+- The README and code comments provide clear instructions for setup, including how to copy and fill in the template files with your own credentials.
+- The project structure is organized for clarity, and all configuration is separated from the codebase.
+- Before sharing, the setup process was tested from a clean clone to ensure that new users can get started easily by following the documentation.
+- All legacy or placeholder credentials have been removed from the code and scripts.
+- The files you need to share are:
+  - All source code and scripts (excluding real credentials)
+  - The template files for configuration
+  - The README and `.gitignore`
+- Files that should never be shared (and are excluded) include:
+  - `config.env` (your real API keys)
+  - `scripts/google_tokens.json` (real OAuth tokens)
+  - `scripts/gdrive_service_account.json` (real service account key)
+  - `scripts/client_secrets.json` (real OAuth client secrets)
+
+By following these practices, the project is safe to distribute and easy for others to set up with their own credentials.
